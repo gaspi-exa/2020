@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="{BASE_URL}">
+    <title>.WAV</title>
+    <link rel="icon" href="img/WAV-logo.svg" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://kit.fontawesome.com/3404ee6456.js" crossorigin="anonymous"></script>
+
+    <script src="js/api.consumer.js"></script>
+    <script src="js/main2.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- REGISTER -->
+<!-- LOG IN -->
+
+    <div class="formLogInBox js-show-contain">
+        <button class="btnClose" id="js-btnClose-login"></button>
+
+        <form action="welcome" class="formLogin" method="post"> 
+
+            <input class="inp-log" type="text" name="userName" placeholder="User" required>
+            <input class="inp-log" type="password" name="userPassword" placeholder="Password" required>
+            <button type="submit">Log In</button>
+            
+        </form>
+    </div>
+
+<!-- SIGN UP -->
+
+    <div class="formSignUpBox js-show-contain">
+        <button class="btnClose" id="js-btnClose-signup"></button>
+
+        <form action="verify" class="formSignUp" method="post"> 
+
+            <input class="inp-log" type="text" name="userName" placeholder="User" required>
+            <input class="inp-log" type="email" name="userEmail" placeholder="Email" required>
+            <input class="inp-log" type="password" name="userPassword" placeholder="Password" required>
+            <button type="submit">Sign Up</button>
+
+        </form>
+    </div>
+
+<!-- NAV -->
+
+    <nav class="fixedNav">
+        <div class="navBox">
+    
+            <div class="logoBox">                  
+                <img id="js-logo-ShowHome" src="img/WAV-logo.svg" alt="WAV logo">
+            </div>
+    
+            <section class="navButtonsSection">
+                <div class="defaultButtonsNavBox">
+                    <ul>
+                        <li>
+                            <a href="#ticketsSection" id="js-showTickets">
+                                TICKETS
+                            </a>
+                        </li>
+                        <li>
+                            <a href="login" id="js-showLogin">
+                                LOG IN
+                            </a>
+                        </li>
+                        <li>
+                            <a href="signup" id="js-showSingUp">
+                                SIGN UP
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="burguerMenuBox">
+                    <button id="js-btnMenu">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </section>
+    
+        </div>
+    </nav>
+    
+    <nav class="hiddenNav js-show-contain">
+    
+        <button class="invisibleBtnToHideNav" id="js-btnHiddenMenu">
+    
+        </button>
+        <section class="buttonsHiddenNavSection">
+            <button id="js-btnshowTickets"> TICKETS </button>
+            <button> GALERY </button>
+            <button> EVENTS </button>
+            <button id="js-btnshowLogin"> LOG IN </button>
+            <button id="js-btnshowSignUp"> SIGN UP </button>
+        </section>
+    
+    </nav>
+
+<!-- HEADER -->
+
+    <header>
+
+        <div class="headerBox">
+    
+            <section class="dateSection">
+                <div class="dateBox">
+                    <h1>25.OCT</h1>
+                    <svg class="datePoligonSvg" viewBox="0 0 876 223">
+                        <polygon class="datePoligon" points="696 223 0 223 0 0 876 0 696 223"/>
+                    </svg>
+                </div>
+            </section>
+            <section class="infoAndPlaySection">
+                <button id="js-btnInfo">
+                    <i class="iconInfo fas fa-info-circle"></i>
+                </button>
+                <button id="js-btnPlay">
+                    <i class="far fa-play-circle"></i>
+                </button>
+            </section>
+            <section class="djNameSection">
+                <h1 class="h1DjName">PAUL DEEP</h1>
+                <p class="info-paragraph js-show-contain">
+                    Paul Deep was born in 1989 in Gral. Obrien province of Buenos Aires. When he was 13 years old, he began his career as a DJ and at 16 he took his first steps in production, always seeking to create a sound that represents him. His style fuses nuances of Deep, Progressive and Techno, always focused on generating hypnotic and melodious atmospheres both in his productions and in his Dj set. In his career in constant growth he has been presented in the best clubs in Argentina Shared cabin with some of the most important references of electronic music. Currently has its own Radio Show ABDUCTION that airs every first Tuesday of the month in one of the most important radio stations of electronic music worldwide Frisky Radio Released music on major labels worldwide SUDBEAT - Plattenbank- Sprout Music - Dopamine - Asymmetric - Sound Avenue - RPO , among others. His productions have support from huge national and international artists such as Hernan Cattaneo - Nick Warren - Guy J - Eelke Kleijn - Guy Mantzur - Maceo Plex - Lonya - Khen - Darin Epsilon - Cid Inc. and many more.
+                </p>
+            </section>
+    
+        </div>
+    
+        <div class="parallax-container">
+            <div class="parallax">
+                <img src="img/bg1.png">
+            </div>
+        </div>
+    
+    </header>
+
+<!-- MAIN -->
+
+    <main>
+
+        <section class="ticketBox" id="ticketsSection">
+            
+            <section class="ticketSection">
+
+                <!--div>
+                {for $i=0 to count($ticketsData[1])-1}
+                    {foreach from=$ticketsData item=data}
+                        {if $data[2]->name == 'promo'}
+            
+                            <article class="ticketCardArticle" data-id="{$data[$i]->id_category}">
+            
+                                <section class="imgCardSection card-{$i}">
+                                    <h4>{$data[$i]->name|upper}</h4>
+                                </section>
+                                
+                                <section class="priceCardSection">
+                                    {if $data[$i]->price == 0}
+                                        <h4>Free</h4>
+                                    {else}
+                                        <h4>${$data[$i]->price}</h4>
+                                    {/if}
+                                </section>
+                                
+                                <section class="stockCardSection">
+                                    <p>Available: <span> {$countTickets[$i]} </span>  tickets</p>
+                                </section>
+            
+                            </article>
+            
+                        {/if}
+                    {/foreach}
+                {/for}
+                </div-->
+            
+                <button id="js-btnBack js-show-contain"></button>
+                
+            </section>
+    
+        </section>
+
+<!-- FOOTER -->
+
+        <section class="iframeSoundcloud" id="iframeSoundcloud">
+            <iframe 
+                width="100%" 
+                height="166" 
+                scrolling="no" 
+                frameborder="no" 
+                allow="autoplay" 
+                src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/835512991&color=%23ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=false&show_reposts=false&show_teaser=false">
+            </iframe>
+        </section>
+    
+        <footer>
+            <p>.WAV MUSIC ©</p>
+        </footer>
+    
+    </main>
+    
+    </body>
+    </html>
+        

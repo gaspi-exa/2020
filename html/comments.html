@@ -1,0 +1,25 @@
+<article class="comments-article">
+    <div class="name-comment-box">
+        <p>@UserName</p>
+    </div>
+    <article>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa rem perspiciatis veritatis corrupti perferendis magnam accusantium blanditiis minus dignissimos, itaque reiciendis dolorum, praesentium voluptas consequuntur, velit necessitatibus vero? Dolorum, exercitationem.</p>
+        <button class="btn-delete-comment">X</button>
+    </article>
+    <hr>
+</article>
+
+<section class="comments-section logBox comment-box">
+    <form action="post-comment" method="post" class="formLogin comment-form">
+        <label for="comment-inp"></label>
+        <input type="text" name="comment-inp" id="comment-inp" value="" placeholder="Comment" class="inp-log">
+        <select name="score-select" id="score-select">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        <button id="comment-submit-btn" type="submit">Send comment</button>
+    </form>
+</section>
